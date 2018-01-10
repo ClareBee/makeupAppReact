@@ -3,6 +3,8 @@ import BrandList from '../components/BrandList';
 import TypeOfProductList from '../components/TypeOfProductList';
 import ProductDetails from '../components/ProductDetails';
 import SortedByBrand from '../components/SortedByBrand';
+import SortedByCost from '../components/SortedByCost';
+import CostOfProductList from '../components/CostOfProductList';
 import uniqBy from 'lodash/uniqBy';
 import Tab from 'react-bootstrap/lib/Tab';
 import Col from 'react-bootstrap/lib/Col';
@@ -18,10 +20,12 @@ class ProductContainer extends React.Component {
     this.state = {
       products: [],
       chosenProduct: null,
-      chosenBrand: null
+      chosenBrand: null,
+      chosenPrice: null
     }
     this.handleChosenProduct = this.handleChosenProduct.bind(this);
     this.handleChosenBrand = this.handleChosenBrand.bind(this);
+    this.handleChosenPrice = this.handleChosenPrice.bind(this);
   }
 
   componentDidMount(){
@@ -47,6 +51,9 @@ handleChosenBrand(brand){
   this.setState({chosenBrand: brand});
   console.log(this.state.chosenBrand);
 }
+handleChosenPrice(price){
+  this.setState({chosenPrice: price});
+}
 
   render(){
     // if(!this.state.products){
@@ -67,7 +74,11 @@ handleChosenBrand(brand){
                   <p>Brands</p>
                 </NavItem>
                 <NavItem eventKey="second">
-                  <p>Individual Products</p></NavItem>
+                  <p>Individual Products</p>
+                </NavItem>
+                <NavItem eventKey="third">
+                  <p>Find a Bargain!</p>
+                </NavItem>
               </Nav>
             </Col>
             <Col sm={8}>
@@ -79,6 +90,10 @@ handleChosenBrand(brand){
                 <Tab.Pane className="tabs" eventKey="second">
                   <TypeOfProductList products={this.state.products} onSelect={this.handleChosenProduct}/>
                   <ProductDetails product={product} index={this.state.chosenProduct} />
+                </Tab.Pane>
+                <Tab.Pane className="tabs" eventKey="third">
+                  <CostOfProductList products={this.state.products} onSelect={this.handleChosenPrice} />
+                  <SortedByCost products={this.state.products} price={this.state.chosenPrice} />
                 </Tab.Pane>
               </Tab.Content>
             </Col>

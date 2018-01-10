@@ -10,9 +10,9 @@ class SortedByBrand extends React.Component {
 
   render(){
 
-    var sortedmakes = filter(this.props.products, {'brand' : this.props.brand});
+    let sortedmakes = filter(this.props.products, {'brand' : this.props.brand});
     console.log(sortedmakes);
-    var listItems = sortedmakes.map((item) => {
+    let listItems = sortedmakes.map((item) => {
       return <a className="product-link" href={item.product_link} target="_blank"><li className="list-items"><img src={item.image_link}/><div>{item.name}</div></li></a>
     });
     return(
