@@ -1,6 +1,7 @@
 import React from 'react';
 import BrandList from '../components/BrandList';
 import TypeOfProductList from '../components/TypeOfProductList';
+import ProductDetails from '../components/ProductDetails';
 
 
 class ProductContainer extends React.Component {
@@ -36,6 +37,7 @@ class ProductContainer extends React.Component {
         <h1>This is the product page</h1>
         <BrandList />
         <TypeOfProductList />
+        <ProductDetails />
       </div>
     )
   }
