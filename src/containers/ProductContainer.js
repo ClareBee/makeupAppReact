@@ -2,14 +2,17 @@ import React from 'react';
 import BrandList from '../components/BrandList';
 import TypeOfProductList from '../components/TypeOfProductList';
 import ProductDetails from '../components/ProductDetails';
+import SortedByBrand from '../components/SortedByBrand';
 
 
 class ProductContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      products: []
+      products: [],
+      chosenProduct: null
     }
+    this.handleChosenProduct = this.handleChosenProduct.bind(this);
   }
 
   componentDidMount(){
@@ -27,18 +30,28 @@ class ProductContainer extends React.Component {
   });
   request.send();
 }
+
+handleChosenProduct(index){
+  this.setState({chosenProduct: index});
+}
+
   render(){
-    if(!this.state.products){
-      return null
-    }
-    console.log(this.state.products);
+    // if(!this.state.products){
+    //   return null
+    // }
+    // console.log(this.state.products.brand);
+    const product = this.state.products[this.state.chosenProduct];
     return(
-      <div>
+      <section>
         <h1>This is the product page</h1>
-        <BrandList />
-        <TypeOfProductList />
-        <ProductDetails />
+        <BrandList products={this.state.products}/>
+        <SortedByBrand />
+        <TypeOfProductList products={this.state.products} onSelect={this.handleChosenProduct}/>
+        <div className="container">
+        <ProductDetails product={product} index={this.state.chosenProduct} />
+
       </div>
+    </section>
     )
   }
 
