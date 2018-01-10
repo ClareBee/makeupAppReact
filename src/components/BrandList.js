@@ -1,5 +1,5 @@
 import React from 'react';
-import uniqBy from 'lodash';
+import uniqBy from 'lodash/uniqBy';
 // import map from 'lodash';
 
 
