@@ -23,7 +23,7 @@ class ProductDetails extends React.Component {
         <figure className="item">
           <h2>{item.name}</h2>
           <h2>{item.brand}</h2>
-          <a className="price-link" href={item.product_link} target="_blank"><i class="fa fa-shopping-basket fa-5x" aria-hidden="true"></i><h3>{item.price_sign}{item.price}</h3></a>
+          <a className="price-link" href={item.product_link} target="_blank"><i class="fa fa-shopping-basket fa-5x" aria-hidden="true"></i><h3>{item.price_sign}{item.price}0</h3></a>
           <ColourPalette colours={colours} />
           <img src={item.image_link} />
           <figcaption>{item.description}</figcaption>
