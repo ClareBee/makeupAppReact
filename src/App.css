@@ -85,6 +85,10 @@ ul > a {
 ul {
   list-style: none;
 }
+ol {
+  list-style: none;
+  display: flex;
+}
 li > img {
   height: 80%;
   border: 1px solid grey;

@@ -1,4 +1,5 @@
 import React from 'react';
+import ColourPalette from "./ColourPalette";
 class ProductDetails extends React.Component {
 
 
@@ -8,25 +9,26 @@ class ProductDetails extends React.Component {
     }
     var item = this.props.product;
     console.log(item);
+    let colours = []
+    this.props.product.product_colors.map((item) =>{
+      if(this.props.product.product_colors.length > 0){
+        colours.push(item)
+      }
+      return colours;
+    });
 
-
-    item.product_colors.length;
 
     return(
-      <article className="item">
-      <figure>
 
-      <h2>{item.name}</h2>
-      <h2>{item.brand}</h2>
-      <a className="price-link" href={item.product_link} target="_blank"><i class="fa fa-shopping-basket fa-5x" aria-hidden="true"></i><h3>{item.price_sign}{item.price}</h3></a>
-        <div id="colors">
-          <input disabled title={item.product_colors[0]['colour_name']} type="color" id="color-picker" value={item.product_colors[0]['hex_value']}/>
-          <input disabled type="color" id="color-picker" value={item.product_colors[1]['hex_value']}/>
-        </div>
-      <img src={item.image_link} />
-      <figcaption>{item.description}</figcaption>
-      </figure>
-    </article>
+        <figure className="item">
+          <h2>{item.name}</h2>
+          <h2>{item.brand}</h2>
+          <a className="price-link" href={item.product_link} target="_blank"><i class="fa fa-shopping-basket fa-5x" aria-hidden="true"></i><h3>{item.price_sign}{item.price}</h3></a>
+          <ColourPalette colours={colours} />
+          <img src={item.image_link} />
+          <figcaption>{item.description}</figcaption>
+        </figure>
+
     )
   }
 
