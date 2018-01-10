@@ -46,8 +46,9 @@ i {
   display: inline-block;
 }
 #site-name {
-  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+  text-shadow: 2px 3px 5px rgba(247,9,21, 0.7);
 }
+
 button{
   background-color: #F7010C;
   border-radius: 4px;
