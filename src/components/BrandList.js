@@ -4,28 +4,27 @@ import uniqBy from 'lodash/uniqBy';
 
 
 class BrandList extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleChosenBrand = this.handleChosenBrand.bind(this);
+  }
+
+  handleChosenBrand(event){
+    this.props.onSelect(event.target.value);
+    console.log(event.target.value);
+  }
 
   render(){
-    // var uniqueBrands = [];
-    // this.props.products.map((product) => {
-    //   console.log(product.brand);
-    //   if(!uniqueBrands.includes(product.brand)){
-    //     uniqueBrands.push(product);
-    //   }
-    //   return uniqueBrands;
-    // });
     var uniqueBrands = uniqBy(this.props.products, 'brand');
-    // console.log("unique"+ uniqueBrands);
     var makes = uniqueBrands.map((make) => {
-      return <option>{make.brand}</option>
+      return <option value={make.brand}>{make.brand}</option>
     });
-    // console.log(uniqueBrands);
 
     return(
     <div>
       <h1>This is the brandlist</h1>
 
-      <select>
+      <select onChange={this.handleChosenBrand}>
         {makes}
       </select>
     </div>

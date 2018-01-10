@@ -3,6 +3,7 @@ import BrandList from '../components/BrandList';
 import TypeOfProductList from '../components/TypeOfProductList';
 import ProductDetails from '../components/ProductDetails';
 import SortedByBrand from '../components/SortedByBrand';
+import uniqBy from 'lodash/uniqBy';
 
 
 class ProductContainer extends React.Component {
@@ -10,9 +11,11 @@ class ProductContainer extends React.Component {
     super(props);
     this.state = {
       products: [],
-      chosenProduct: null
+      chosenProduct: null,
+      chosenBrand: null
     }
     this.handleChosenProduct = this.handleChosenProduct.bind(this);
+    this.handleChosenBrand = this.handleChosenBrand.bind(this);
   }
 
   componentDidMount(){
@@ -25,6 +28,9 @@ class ProductContainer extends React.Component {
     } else {
       const response = request.responseText;
       const data = JSON.parse(response);
+      // let allbrands = uniqBy(data, 'brand');
+      // console.log("unique"+ uniqueBrands);
+
       this.setState({products: data});
     }
   });
@@ -34,6 +40,10 @@ class ProductContainer extends React.Component {
 handleChosenProduct(index){
   this.setState({chosenProduct: index});
 }
+handleChosenBrand(brand){
+  this.setState({chosenBrand: brand});
+  console.log(this.state.chosenBrand);
+}
 
   render(){
     // if(!this.state.products){
@@ -41,14 +51,18 @@ handleChosenProduct(index){
     // }
     // console.log(this.state.products.brand);
     const product = this.state.products[this.state.chosenProduct];
+
+
     return(
       <section>
         <h1>This is the product page</h1>
-        <BrandList products={this.state.products}/>
-        <SortedByBrand />
+        <BrandList products={this.state.products} onSelect={this.handleChosenBrand} />
+        <SortedByBrand products={this.state.products} brand={this.state.chosenBrand} />
+
         <TypeOfProductList products={this.state.products} onSelect={this.handleChosenProduct}/>
         <div className="container">
         <ProductDetails product={product} index={this.state.chosenProduct} />
+
 
       </div>
     </section>
