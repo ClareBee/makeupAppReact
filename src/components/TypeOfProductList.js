@@ -16,8 +16,8 @@ class TypeOfProductList extends React.Component {
   });
     return(
       <div>
-      <h2>This is the type of product list</h2>
-      <select id="items" onChange={this.handleChange}>
+      <h2 id="products-title">All our lipstick in one place!</h2>
+      <select className="selector" id="items" onChange={this.handleChange}>
         {items}
       </select>
     </div>

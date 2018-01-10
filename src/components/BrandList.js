@@ -22,9 +22,9 @@ class BrandList extends React.Component {
 
     return(
     <div>
-      <h1>This is the brandlist</h1>
-
-      <select onChange={this.handleChosenBrand}>
+      <h1>Brand List</h1>
+      <h4>Choose a brand to see what items we have</h4>
+      <select className="selector" onChange={this.handleChosenBrand}>
         {makes}
       </select>
     </div>
