@@ -71,12 +71,15 @@ handleChosenPrice(price){
             <Col sm={4}>
               <Nav id="menu" bsStyle="pills" stacked>
                 <NavItem eventKey="first">
-                  <p>Brands</p>
+                  <p>Welcome</p>
                 </NavItem>
                 <NavItem eventKey="second">
-                  <p>Individual Products</p>
+                  <p>Brands</p>
                 </NavItem>
                 <NavItem eventKey="third">
+                  <p>Individual Products</p>
+                </NavItem>
+                <NavItem eventKey="fourth">
                   <p>Find a Bargain!</p>
                 </NavItem>
               </Nav>
@@ -84,14 +87,19 @@ handleChosenPrice(price){
             <Col sm={8}>
               <Tab.Content animation>
                 <Tab.Pane className="tabs" eventKey="first">
+                  <h1>Welcome</h1>
+                  <p id="welcome-blurb">Welcome to <strong>lipstix</strong> - your online treasure trove of lipsticks!<br/>Click on the tabs to explore our collection.</p>
+                  <img id="lipstick-group" src="lipstickGroup.jpg" />  
+                </Tab.Pane>
+                <Tab.Pane className="tabs" eventKey="second">
                   <BrandList products={this.state.products} onSelect={this.handleChosenBrand} />
                   <SortedByBrand products={this.state.products} brand={this.state.chosenBrand} />
                 </Tab.Pane>
-                <Tab.Pane className="tabs" eventKey="second">
+                <Tab.Pane className="tabs" eventKey="third">
                   <TypeOfProductList products={this.state.products} onSelect={this.handleChosenProduct}/>
                   <ProductDetails product={product} index={this.state.chosenProduct} />
                 </Tab.Pane>
-                <Tab.Pane className="tabs" eventKey="third">
+                <Tab.Pane className="tabs" eventKey="fourth">
                   <CostOfProductList products={this.state.products} onSelect={this.handleChosenPrice} />
                   <SortedByCost products={this.state.products} price={this.state.chosenPrice} />
                 </Tab.Pane>

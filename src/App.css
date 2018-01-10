@@ -3,7 +3,7 @@ figcaption {
 }
 
 #menu {
-  margin-left: 5px;
+  margin-left: 10px;
   box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.6);
 }
 figure {
@@ -56,10 +56,7 @@ i {
 h3, h4, h5, p{
   font-family: 'Open Sans', sans-serif;
 }
-#colors {
-  float: right;
-  margin-right: 80px;
-}
+
 input {
   height: 50px;
   margin: 5px;
@@ -75,7 +72,6 @@ ul > a {
   flex-wrap: nowrap;
   margin: 10px;
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
-
 }
 .container {
   display: flex;
@@ -88,10 +84,18 @@ ul {
 ol {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
 }
 li > img {
   height: 80%;
   border: 1px solid grey;
+}
+
+#lipstick-group {
+  width: 30%;
+  border-radius: 5px;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+  opacity: 0.8;
 }
 
 
