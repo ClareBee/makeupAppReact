@@ -13,8 +13,8 @@ class CostOfProductList extends React.Component {
   render(){
     return(
       <div>
-      <p> This is the sorted by cost bit </p>
-      <label for="slider" type="range">min=0, max=50, ticks at $5, $10, $15, $20, $25, $30, $35, $40, $45, $50:</label>
+      <p>Tell us how much you'd like to spend and we'll show you the lipsticks!</p>
+      <label for="slider" type="range">ticks at $5, $10, $15, $20, $25, $30, $35, $40, $45, $50:</label>
       <input id="slider" list="ticks" type="range" min="0" max="50" step="5" ref="input"/>
       <datalist id="ticks">
         <option>5</option>

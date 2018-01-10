@@ -88,8 +88,8 @@ handleChosenPrice(price){
               <Tab.Content animation>
                 <Tab.Pane className="tabs" eventKey="first">
                   <h1>Welcome</h1>
-                  <p id="welcome-blurb">Welcome to <strong>lipstix</strong> - your online treasure trove of lipsticks!<br/>Click on the tabs to explore our collection.</p>
-                  <img id="lipstick-group" src="lipstickGroup.jpg" />  
+                  <p id="welcome-blurb">Welcome to <span id="site-name">lipstix</span> - your online treasure trove of lipsticks!<br/>Click on the tabs to explore our collection.</p>
+                  <img id="lipstick-group" src="lipstickGroup.jpg" />
                 </Tab.Pane>
                 <Tab.Pane className="tabs" eventKey="second">
                   <BrandList products={this.state.products} onSelect={this.handleChosenBrand} />
